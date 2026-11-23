@@ -1,0 +1,313 @@
+
+.portfolio {
+  position: relative;
+  width: 100%;
+  padding: 110px 0 120px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* CONTAINER */
+
+.container {
+  width: min(100% - 48px, 1320px);
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.header {
+  max-width: 680px;
+  margin: 0 auto 55px;
+  text-align: center;
+
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+
+    color: #215575;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 38px;
+      height: 3px;
+      margin: 8px auto 0;
+      background: #ffc627;
+    }
+  }
+
+  h2 {
+    margin: 0;
+    color: #17232b;
+
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+
+    span {
+      color: #215575;
+    }
+  }
+
+  p {
+    max-width: 590px;
+    margin: 18px auto 0;
+
+    color: #777777;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}
+
+/* PROJECT GRID */
+
+.projectsGrid {
+  display: grid;
+
+  grid-template-columns: 1.15fr 1fr 0.72fr;
+  grid-template-rows: 260px 260px;
+
+  gap: 22px;
+}
+
+/* PROJECT */
+
+.project {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: #f5f5f2;
+
+  cursor: pointer;
+
+  .projectImage {
+    object-fit: cover;
+    transition: transform 0.65s ease;
+  }
+
+  &:hover {
+    .projectImage {
+      transform: scale(1.07);
+    }
+
+    .imageOverlay {
+      opacity: 1;
+    }
+
+    .plus {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+/* GRID POSITIONS */
+
+.large {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.medium:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.small:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.medium:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.small:nth-child(5) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.small:nth-child(6) {
+  display: none;
+}
+
+/* OVERLAY */
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 22px;
+
+  background: linear-gradient(
+    180deg,
+    transparent 45%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.projectNumber {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.plus {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffc627;
+  color: #215575;
+
+  font-size: 25px;
+  font-weight: 400;
+
+  transition: transform 0.35s ease;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .portfolio {
+    padding: 90px 0;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 350px 230px 230px;
+    gap: 18px;
+  }
+
+  .large {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  .medium:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .small:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .medium:nth-child(4) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .small:nth-child(5) {
+    display: none;
+  }
+
+  .small:nth-child(6) {
+    display: block;
+    grid-column: 2;
+    grid-row: 3;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .portfolio {
+    padding: 70px 0 80px;
+  }
+
+  .container {
+    width: calc(100% - 36px);
+  }
+
+  .header {
+    margin-bottom: 35px;
+
+    h2 {
+      font-size: 34px;
+      letter-spacing: -1px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 260px 190px 190px;
+    gap: 12px;
+  }
+
+  .large {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .medium:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .small:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .medium:nth-child(4) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .small:nth-child(5) {
+    display: block;
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .small:nth-child(6) {
+    display: none;
+  }
+
+  .imageOverlay {
+    padding: 12px;
+  }
+
+  .plus {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .projectsGrid {
+    grid-template-rows: 220px 160px 160px;
+    gap: 9px;
+  }
+
+  .header h2 {
+    font-size: 30px;
+  }
+}

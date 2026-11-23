@@ -1,0 +1,806 @@
+
+$blue: #215575;
+$yellow: #ffc627;
+$white: #ffffff;
+$light: #f5f5f2;
+$dark: #20272c;
+$text: #626b70;
+
+.page {
+  width: 100%;
+  overflow: hidden;
+  color: $dark;
+  background: $white;
+}
+
+.container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+// HERO
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 660px;
+  padding: 105px 0 65px;
+  overflow: hidden;
+  color: $white;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 31, 43, 0.94) 0%,
+      rgba(18, 48, 64, 0.84) 48%,
+      rgba(18, 48, 64, 0.48) 100%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #8a725b 0,
+      #8a725b 2px,
+      #a58c70 3px,
+      #a58c70 18px,
+      #755f4d 19px,
+      #755f4d 21px
+    );
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 78% 45%,
+      rgba(255, 198, 39, 0.13),
+      transparent 34%
+    );
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  align-items: center;
+  margin-bottom: 90px;
+  color: rgba($white, 0.68);
+  font-size: 12px;
+
+  a {
+    color: rgba($white, 0.82);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+  span:last-child {
+    color: $yellow;
+  }
+}
+
+.heroContent {
+  max-width: 720px;
+
+  h1 {
+    margin: 23px 0;
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1.03;
+    font-weight: 700;
+    letter-spacing: -3.5px;
+
+    span {
+      display: block;
+      color: $yellow;
+    }
+  }
+
+  p {
+    max-width: 590px;
+    margin: 0;
+    color: rgba($white, 0.83);
+    font-size: 17px;
+    line-height: 1.85;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  color: $yellow;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  min-height: 56px;
+  padding: 0 25px;
+  color: $dark;
+  background: $yellow;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+
+  span {
+    font-size: 19px;
+  }
+
+  &:hover {
+    background: $white;
+    transform: translateY(-2px);
+  }
+}
+
+.phoneButton {
+  display: inline-flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 0 22px;
+  color: $white;
+  border: 1px solid rgba($white, 0.4);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $dark;
+    background: $white;
+  }
+}
+
+.heroBottom {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 95px;
+  color: rgba($white, 0.72);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.heroBottomLine {
+  width: 45px;
+  height: 1px;
+  background: $yellow;
+}
+
+// INTRO
+
+.intro {
+  padding: 120px 0;
+  background: $white;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr;
+  gap: 90px;
+}
+
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: $blue;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  span:first-child {
+    display: grid;
+    width: 37px;
+    height: 37px;
+    place-items: center;
+    color: $dark;
+    background: $yellow;
+    font-size: 12px;
+  }
+}
+
+.introContent {
+  max-width: 740px;
+
+  h2 {
+    margin: 0 0 25px;
+    font-size: clamp(35px, 4.5vw, 54px);
+    line-height: 1.13;
+    letter-spacing: -2px;
+
+    span {
+      color: $blue;
+    }
+  }
+
+  p {
+    margin: 0 0 17px;
+    color: $text;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .lead {
+    margin-bottom: 22px;
+    color: $dark;
+    font-size: 19px;
+    line-height: 1.7;
+    font-weight: 500;
+  }
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 17px;
+  color: $blue;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  span {
+    color: $yellow;
+    font-size: 20px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover span {
+    transform: translateX(5px);
+  }
+}
+
+// BENEFITS
+
+.benefits {
+  padding: 110px 0 120px;
+  background: $light;
+}
+
+.sectionHeading {
+  max-width: 650px;
+  margin: 0 auto 60px;
+  text-align: center;
+
+  h2 {
+    margin: 17px 0;
+    font-size: clamp(35px, 4.5vw, 52px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+
+    span {
+      color: $blue;
+    }
+  }
+
+  > p {
+    margin: 0;
+    color: $text;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}
+
+.eyebrowDark {
+  color: $blue;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 17px;
+}
+
+.benefitCard {
+  min-height: 285px;
+  padding: 30px 25px;
+  background: $white;
+  border-bottom: 3px solid transparent;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: $yellow;
+  }
+
+  h3 {
+    margin: 27px 0 13px;
+    font-size: 19px;
+    line-height: 1.35;
+  }
+
+  p {
+    margin: 0;
+    color: $text;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+}
+
+.cardNumber {
+  color: $blue;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cardLine {
+  width: 42px;
+  height: 3px;
+  margin-top: 18px;
+  background: $yellow;
+}
+
+// CHOICE
+
+.choice {
+  padding: 120px 0;
+  background: $white;
+}
+
+.choiceGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.choiceVisual {
+  position: relative;
+}
+
+.visualFrame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  padding: 35px;
+  overflow: hidden;
+  color: $white;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 39, 53, 0.92),
+      rgba(33, 85, 117, 0.82)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      #ad9274 0,
+      #ad9274 3px,
+      #8c735b 4px,
+      #8c735b 17px
+    );
+
+  &::after {
+    position: absolute;
+    right: -65px;
+    bottom: -100px;
+    width: 310px;
+    height: 310px;
+    border: 1px solid rgba($yellow, 0.45);
+    border-radius: 50%;
+    content: "";
+  }
+}
+
+.visualSmall {
+  position: relative;
+  z-index: 1;
+  color: $yellow;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.visualBig {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(75px, 11vw, 130px);
+  font-weight: 800;
+  letter-spacing: -8px;
+  line-height: 1;
+}
+
+.visualBottom {
+  position: relative;
+  z-index: 1;
+  max-width: 230px;
+  color: rgba($white, 0.85);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.visualCaption {
+  margin-top: 15px;
+  color: $text;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.choiceContent {
+  h2 {
+    margin: 17px 0 25px;
+    font-size: clamp(35px, 4.2vw, 50px);
+    line-height: 1.13;
+    letter-spacing: -2px;
+
+    span {
+      color: $blue;
+    }
+  }
+
+  > p {
+    margin: 0 0 17px;
+    color: $text;
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  > .primaryButton {
+    margin-top: 15px;
+  }
+}
+
+.notice {
+  display: flex;
+  gap: 15px;
+  margin-top: 27px;
+  padding: 20px;
+  background: $light;
+  border-left: 3px solid $yellow;
+
+  p {
+    margin: 0;
+    color: $text;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+}
+
+.noticeIcon {
+  display: grid;
+  flex: 0 0 25px;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  color: $white;
+  background: $blue;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+// PROCESS
+
+.process {
+  padding: 110px 0 120px;
+  background: $light;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.processCard {
+  position: relative;
+  padding: 30px 23px;
+  background: $white;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 23px;
+    width: 38px;
+    height: 3px;
+    background: $yellow;
+    content: "";
+  }
+
+  h3 {
+    margin: 25px 0 13px;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  p {
+    margin: 0;
+    color: $text;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+}
+
+.processNumber {
+  color: $blue;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+// CTA
+
+.cta {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  color: $white;
+  background: $blue;
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 1px solid rgba($white, 0.1);
+    border-radius: 50%;
+    content: "";
+  }
+
+  &::before {
+    top: -220px;
+    right: -80px;
+  }
+
+  &::after {
+    right: 100px;
+    bottom: -290px;
+  }
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    margin: 20px 0;
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.1;
+    letter-spacing: -2px;
+
+    span {
+      display: block;
+      color: $yellow;
+    }
+  }
+
+  > p {
+    max-width: 590px;
+    margin: 0 auto;
+    color: rgba($white, 0.8);
+    font-size: 15px;
+    line-height: 1.85;
+  }
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  min-height: 56px;
+  padding: 0 25px;
+  color: $dark;
+  background: $yellow;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+
+  span {
+    font-size: 19px;
+  }
+
+  &:hover {
+    background: $white;
+  }
+}
+
+.ctaPhone {
+  color: $white;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    color: $yellow;
+  }
+}
+
+// RESPONSIVE
+
+@media (max-width: 1000px) {
+  .benefitGrid,
+  .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .introGrid {
+    gap: 45px;
+  }
+
+  .choiceGrid {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: min(100% - 36px, 540px);
+  }
+
+  .hero {
+    min-height: 620px;
+    padding: 85px 0 45px;
+  }
+
+  .breadcrumb {
+    margin-bottom: 75px;
+    font-size: 10px;
+  }
+
+  .heroContent {
+    h1 {
+      font-size: clamp(43px, 12vw, 62px);
+      letter-spacing: -2px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  .heroActions {
+    align-items: stretch;
+    flex-direction: column;
+
+    .primaryButton,
+    .phoneButton {
+      justify-content: center;
+    }
+  }
+
+  .heroBottom {
+    margin-top: 70px;
+    font-size: 9px;
+  }
+
+  .intro,
+  .choice {
+    padding: 80px 0;
+  }
+
+  .introGrid,
+  .choiceGrid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .introContent {
+    h2 {
+      font-size: 39px;
+    }
+
+    .lead {
+      font-size: 17px;
+    }
+  }
+
+  .benefits,
+  .process {
+    padding: 80px 0;
+  }
+
+  .sectionHeading {
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 39px;
+    }
+  }
+
+  .benefitGrid,
+  .processGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .benefitCard {
+    min-height: auto;
+    padding: 27px;
+  }
+
+  .visualFrame {
+    min-height: 350px;
+  }
+
+  .visualBig {
+    font-size: 95px;
+  }
+
+  .choiceContent {
+    h2 {
+      font-size: 39px;
+    }
+  }
+
+  .processCard {
+    padding: 27px;
+  }
+
+  .cta {
+    padding: 80px 0;
+  }
+
+  .ctaContent {
+    h2 {
+      font-size: 42px;
+    }
+
+    > p {
+      font-size: 14px;
+    }
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+  .heroContent h1 {
+    font-size: 40px;
+  }
+
+  .heroBottom {
+    gap: 9px;
+    letter-spacing: 0;
+  }
+
+  .sectionHeading h2,
+  .introContent h2,
+  .choiceContent h2 {
+    font-size: 34px;
+  }
+}
