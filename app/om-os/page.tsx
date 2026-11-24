@@ -146,7 +146,10 @@ export default function OmOsPage() {
             kontakt til det færdige resultat.
           </p>
 
-          <Link href="/kontakt" className={styles.primaryButton}>
+          <Link
+            href="/kontakt"
+            className={styles.primaryButton}
+          >
             Kontakt os
             <span>→</span>
           </Link>
@@ -214,7 +217,9 @@ export default function OmOsPage() {
               <h3>{value.title}</h3>
               <p>{value.description}</p>
 
-              <span className={styles.cardArrow}>↗</span>
+              <span className={styles.cardArrow}>
+                ↗
+              </span>
             </article>
           ))}
         </div>
@@ -263,8 +268,12 @@ export default function OmOsPage() {
         </div>
 
         <div className={styles.guaranteeCard}>
-          <span className={styles.guaranteeIcon}>✓</span>
+          <span className={styles.guaranteeIcon}>
+            ✓
+          </span>
+
           <strong>3 ÅR</strong>
+
           <h3>Garanti på gulvarbejde</h3>
 
           <p>
@@ -324,7 +333,10 @@ export default function OmOsPage() {
           </p>
         </div>
 
-        <Link href="/kontakt" className={styles.ctaButton}>
+        <Link
+          href="/kontakt"
+          className={styles.ctaButton}
+        >
           Få et uforpligtende tilbud
           <span>→</span>
         </Link>

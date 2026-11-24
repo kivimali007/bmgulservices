@@ -7,7 +7,7 @@ import About from "./components/About/About";
 import Services from "./components/Services/Services";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
 import Portfolio from "./components/Portfolio/Portfolio";
-import LatestBlog from "./components/LatestBlog/LatestBlog";
+import Forms from "./components/Forms/forms";
 
 export const metadata: Metadata = {
   title: "BM Gulvservice | Professionel Gulvafslibning",
@@ -24,7 +24,7 @@ export default function Home() {
       <Services />
       <WhyChooseUs />
       <Portfolio />
-      <LatestBlog />
+      <Forms />
     </main>
   );
 }

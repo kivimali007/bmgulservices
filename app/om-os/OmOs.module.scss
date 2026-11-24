@@ -22,21 +22,28 @@
   display: flex;
   align-items: center;
   padding: 70px max(7%, calc((100% - 1160px) / 2));
+
   background:
-    linear-gradient(90deg, rgba(8, 7, 4, 0.94), rgba(8, 7, 4, 0.55)),
-    linear-gradient(135deg, #28231a, #756044, #17130d);
+    linear-gradient(
+      90deg,
+      rgba(8, 7, 4, 0.88),
+      rgba(8, 7, 4, 0.45)
+    ),
+    url("/images/service-gulvafslibning.jpg");
+
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
   color: #fff;
 }
 
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
+  background: linear-gradient(
     115deg,
-    transparent 0,
-    transparent 100px,
-    rgba(255, 255, 255, 0.025) 101px,
-    transparent 103px
+    rgba(0, 0, 0, 0.12),
+    transparent 65%
   );
 }
 
@@ -126,26 +133,13 @@
   justify-content: flex-end;
   padding: 38px;
   overflow: hidden;
+
   background:
     linear-gradient(0deg, rgba(10, 8, 5, 0.9), transparent 75%),
-    repeating-linear-gradient(
-      90deg,
-      #8d6940 0px,
-      #b18a58 25px,
-      #765331 50px,
-      #a47b4c 75px
-    );
+    url("/images/about-main.jpg");
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.1),
-      transparent 55%
-    );
-  }
+  background-size: cover;
+  background-position: center;
 }
 
 .visualLabel {
@@ -561,6 +555,7 @@
   .hero {
     min-height: 370px;
     padding: 65px 25px;
+    background-position: center;
   }
 
   .heroBadge {

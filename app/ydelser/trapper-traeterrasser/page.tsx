@@ -1,5 +1,5 @@
-
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./TrapperTraeterrasser.module.scss";
 
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 const services = [
   {
     number: "01",
+    image: "/images/stepenice.jpg",
     title: "Slibning af trapper",
     description:
       "Vi tilbyder professionel slibning af trætrapper. Vi fjerner gammel lak, pletter og ridser og giver dine trapper en flot og jævn overflade.",
@@ -20,10 +21,10 @@ const services = [
       "Slibning af ridser og slidte områder",
       "Et flot og ensartet resultat",
     ],
-    className: "stairs",
   },
   {
     number: "02",
+    image: "/images/terasa.jpg",
     title: "Slibning af træterrasser",
     description:
       "Vi fjerner gammel belægning, ujævnheder og skader og giver dine træflader et flot og jævnt resultat.",
@@ -32,10 +33,10 @@ const services = [
       "Udjævning af slidte områder",
       "Et fornyet og flot udseende",
     ],
-    className: "terrace",
   },
   {
     number: "03",
+    image: "/images/ploca.jpg",
     title: "Slibning af bordplader",
     description:
       "Vi fjerner ridser, pletter og slitage og giver din bordplade en glat og flot finish. Uanset om det er en køkkenbordplade, spisebord eller skrivebord.",
@@ -44,7 +45,6 @@ const services = [
       "Behandling af slidte træoverflader",
       "En glat og flot finish",
     ],
-    className: "tabletop",
   },
 ];
 
@@ -93,9 +93,11 @@ const process = [
 export default function TrapperTraeterrasserPage() {
   return (
     <main className={styles.page}>
-      {/* HERO */}
+    
       <section className={styles.hero}>
+        <div className={styles.heroBackground} />
         <div className={styles.heroOverlay} />
+        <div className={styles.heroPattern} />
 
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
@@ -109,7 +111,7 @@ export default function TrapperTraeterrasserPage() {
               <span>træterrasser</span>
             </h1>
 
-            <p>
+            <p className={styles.heroDescription}>
               Professionel slibning af træoverflader.
               Vi giver dine trapper, terrasser og
               bordplader nyt liv med fokus på kvalitet,
@@ -127,10 +129,16 @@ export default function TrapperTraeterrasserPage() {
 
               <a
                 href="tel:+4552659452"
-                className={styles.phoneButton}
+                className={styles.phoneLink}
               >
-                Ring til os
-                <strong>52 65 94 52</strong>
+                <span className={styles.phoneIcon}>
+                  ☎
+                </span>
+
+                <span>
+                  <small>Ring til os</small>
+                  <strong>52 65 94 52</strong>
+                </span>
               </a>
             </div>
 
@@ -141,21 +149,34 @@ export default function TrapperTraeterrasserPage() {
             </div>
           </div>
 
+          {/* HERO IMAGE */}
           <div className={styles.heroVisual}>
-            <div className={styles.heroVisualFrame}>
-              <span className={styles.visualTopLabel}>
-                BM GULVSERVICE
-              </span>
+            <div className={styles.visualFrame}>
+              <div className={styles.visualImage}>
+                <Image
+                  src="/images/about-main.jpg"
+                  alt="BM Gulvservice - professionelt håndværk"
+                  fill
+                  priority
+                  sizes="(max-width: 800px) 100vw, 390px"
+                  className={styles.visualImageElement}
+                />
 
-              <div className={styles.visualBottom}>
-                <strong>Træ med nyt liv.</strong>
-                <span>Præcision i hver detalje</span>
+                <span className={styles.imageTag}>
+                  BM GULVSERVICE
+                </span>
+
+                <div className={styles.visualCaption}>
+                  <span>PROFESSIONELT HÅNDVÆRK</span>
+                  <strong>Træ med nyt liv.</strong>
+                </div>
               </div>
             </div>
 
-            <div className={styles.heroVisualAccent}>
-              <strong>01</strong>
-              <span>Kvalitet i hvert projekt</span>
+            <div className={styles.visualBadge}>
+              <span>01</span>
+              <strong>Kvalitet i hvert projekt</strong>
+              <small>Præcision i hver detalje</small>
             </div>
           </div>
         </div>
@@ -168,57 +189,53 @@ export default function TrapperTraeterrasserPage() {
 
       {/* INTRO */}
       <section className={styles.intro}>
-        <div className={styles.introContainer}>
-          <div className={styles.introHeading}>
-            <div className={styles.eyebrowDark}>
-              <span />
-              VI SLIBER OGSÅ TRÆOVERFLADER
-            </div>
+        <div className={styles.introLabel}>
+          <span className={styles.sectionNumber}>01</span>
+          <span>VI SLIBER OGSÅ TRÆOVERFLADER</span>
+        </div>
 
-            <h2>
-              Mere end bare gulve.
-              <span> Vi fornyer træ.</span>
-            </h2>
-          </div>
+        <div className={styles.introContent}>
+          <h2>
+            Mere end bare gulve.
+            <span> Vi fornyer træ.</span>
+          </h2>
 
-          <div className={styles.introContent}>
-            <p>
-              Har du brug for at forny dine trapper,
-              træterrasser eller bordplader? Hos BM
-              Gulvservice tilbyder vi professionel
-              slibning, der giver dine træoverflader
-              et smukt og glat finish.
-            </p>
+          <p>
+            Har du brug for at forny dine trapper,
+            træterrasser eller bordplader? Hos BM
+            Gulvservice tilbyder vi professionel
+            slibning, der giver dine træoverflader
+            et smukt og glat finish.
+          </p>
 
-            <p>
-              Uanset om det er en gammel trappe, en
-              slidt terrasse eller en brugt bordplade,
-              hjælper vi med at fjerne skrammer, ridser
-              og slitage, så træet får et flottere
-              udseende.
-            </p>
+          <p>
+            Uanset om det er en gammel trappe, en
+            slidt terrasse eller en brugt bordplade,
+            hjælper vi med at fjerne skrammer, ridser
+            og slitage, så træet får et flottere
+            udseende.
+          </p>
 
-            <p>
-              Vi arbejder effektivt og med fokus på
-              kvalitet, så du får et resultat, du kan
-              glæde dig over.
-            </p>
+          <p>
+            Vi arbejder effektivt og med fokus på
+            kvalitet, så du får et resultat, du kan
+            glæde dig over.
+          </p>
 
-            <Link
-              href="/kontakt"
-              className={styles.textLink}
-            >
-              Lad os høre om dit projekt
-              <span>↗</span>
-            </Link>
-          </div>
+          <Link
+            href="/kontakt"
+            className={styles.textLink}
+          >
+            Lad os høre om dit projekt
+            <span>↗</span>
+          </Link>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section className={styles.services}>
-        <div className={styles.sectionContainer}>
-          <div className={styles.sectionHeading}>
+      <section className={styles.treatments}>
+        <div className={styles.sectionHeading}>
+          <div>
             <div className={styles.eyebrowDark}>
               <span />
               VORES YDELSER
@@ -228,196 +245,237 @@ export default function TrapperTraeterrasserPage() {
               Vi giver dine træoverflader
               <span> nyt liv</span>
             </h2>
-
-            <p>
-              Vi tilbyder professionel slibning af
-              forskellige træoverflader med fokus på
-              et flot, jævnt og ensartet resultat.
-            </p>
           </div>
 
-          <div className={styles.serviceGrid}>
-            {services.map((service) => (
-              <article
-                className={styles.serviceCard}
-                key={service.number}
+          <p>
+            Vi tilbyder professionel slibning af
+            forskellige træoverflader med fokus på
+            et flot, jævnt og ensartet resultat.
+          </p>
+        </div>
+
+        <div className={styles.treatmentGrid}>
+          {services.map((service) => (
+            <article
+              className={styles.treatmentCard}
+              key={service.number}
+            >
+              <div
+                className={`${styles.treatmentVisual} ${
+                  service.number === "01"
+                    ? styles.lacquer
+                    : service.number === "02"
+                    ? styles.oil
+                    : styles.soap
+                }`}
               >
-                <div
-                  className={`${styles.serviceVisual} ${
-                    styles[service.className]
-                  }`}
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 800px) 100vw, 33vw"
+                  className={styles.treatmentImage}
+                />
+
+                <span className={styles.treatmentNumber}>
+                  {service.number}
+                </span>
+
+                <span className={styles.treatmentVisualText}>
+                  BM GULVSERVICE
+                </span>
+              </div>
+
+              <div className={styles.treatmentContent}>
+                <span className={styles.treatmentSubtitle}>
+                  PROFESSIONEL SLIBNING
+                </span>
+
+                <h3>{service.title}</h3>
+
+                <p>{service.description}</p>
+
+                <ul>
+                  {service.features.map((feature) => (
+                    <li key={feature}>
+                      <span>✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href="/kontakt"
+                  className={styles.cardLink}
                 >
-                  <span className={styles.serviceNumber}>
-                    {service.number}
-                  </span>
-
-                  <span className={styles.serviceVisualText}>
-                    BM GULVSERVICE
-                  </span>
-                </div>
-
-                <div className={styles.serviceContent}>
-                  <span className={styles.serviceLabel}>
-                    PROFESSIONEL SLIBNING
-                  </span>
-
-                  <h3>{service.title}</h3>
-
-                  <p>{service.description}</p>
-
-                  <ul>
-                    {service.features.map((feature) => (
-                      <li key={feature}>
-                        <span>✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link
-                    href="/kontakt"
-                    className={styles.serviceLink}
-                  >
-                    Få et tilbud
-                    <span>↗</span>
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
+                  Få et tilbud
+                  <span>↗</span>
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
       {/* BENEFITS */}
       <section className={styles.benefits}>
-        <div className={styles.benefitsContainer}>
-          <div className={styles.benefitsIntro}>
-            <div className={styles.eyebrow}>
-              <span />
-              DERFOR SKAL DU VÆLGE OS
-            </div>
+        <div className={styles.benefitsHeader}>
+          <div className={styles.eyebrow}>
+            <span />
+            DERFOR SKAL DU VÆLGE OS
+          </div>
 
-            <h2>
-              Godt håndværk
-              <span> hele vejen.</span>
-            </h2>
+          <h2>
+            Godt håndværk
+            <span> hele vejen.</span>
+          </h2>
 
-            <p>
-              Vi går op i detaljerne og arbejder
-              målrettet for at skabe et flot resultat.
-              Din tilfredshed er vigtig for os.
-            </p>
+          <p>
+            Vi går op i detaljerne og arbejder
+            målrettet for at skabe et flot resultat.
+            Din tilfredshed er vigtig for os.
+          </p>
+        </div>
 
-            <Link
-              href="/kontakt"
-              className={styles.benefitsButton}
+        <div className={styles.benefitsGrid}>
+          {benefits.map((benefit) => (
+            <article
+              className={styles.benefitCard}
+              key={benefit.number}
             >
-              Kontakt os
-              <span>↗</span>
-            </Link>
-          </div>
+              <span className={styles.benefitNumber}>
+                {benefit.number}
+              </span>
 
-          <div className={styles.benefitsList}>
-            {benefits.map((benefit) => (
-              <article
-                className={styles.benefitItem}
-                key={benefit.number}
-              >
-                <span className={styles.benefitNumber}>
-                  {benefit.number}
-                </span>
+              <span className={styles.benefitArrow}>
+                ↗
+              </span>
 
-                <div>
-                  <h3>{benefit.title}</h3>
-                  <p>{benefit.description}</p>
-                </div>
+              <h3>{benefit.title}</h3>
 
-                <span className={styles.benefitArrow}>↗</span>
-              </article>
-            ))}
-          </div>
+              <p>{benefit.description}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       {/* PROCESS */}
       <section className={styles.process}>
-        <div className={styles.sectionContainer}>
-          <div className={styles.sectionHeading}>
-            <div className={styles.eyebrowDark}>
-              <span />
-              SÅDAN ARBEJDER VI
-            </div>
-
-            <h2>
-              Fra første kontakt
-              <span> til flot resultat.</span>
-            </h2>
-
-            <p>
-              Vi gør processen enkel og overskuelig
-              fra den første samtale til det færdige
-              arbejde.
-            </p>
+        <div className={styles.processIntro}>
+          <div className={styles.eyebrowDark}>
+            <span />
+            SÅDAN ARBEJDER VI
           </div>
 
-          <div className={styles.processGrid}>
-            {process.map((step) => (
-              <article
-                className={styles.processCard}
-                key={step.number}
-              >
-                <span className={styles.processNumber}>
-                  {step.number}
-                </span>
+          <h2>
+            Fra første kontakt
+            <span> til flot resultat.</span>
+          </h2>
 
-                <div className={styles.processLine} />
+          <p>
+            Vi gør processen enkel og overskuelig
+            fra den første samtale til det færdige
+            arbejde.
+          </p>
 
+          <Link
+            href="/kontakt"
+            className={styles.secondaryButton}
+          >
+            Kontakt os
+            <span>↗</span>
+          </Link>
+        </div>
+
+        <div className={styles.processList}>
+          {process.map((step) => (
+            <article
+              className={styles.processItem}
+              key={step.number}
+            >
+              <span className={styles.processNumber}>
+                {step.number}
+              </span>
+
+              <div>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
-              </article>
-            ))}
+              </div>
+
+              <span className={styles.processArrow}>
+                ↗
+              </span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* RELATED */}
+      <section className={styles.related}>
+        <div className={styles.relatedContent}>
+          <div className={styles.eyebrow}>
+            <span />
+            BM GULVSERVICE
           </div>
+
+          <h2>
+            Har du en træoverflade,
+            <span> der trænger til nyt liv?</span>
+          </h2>
+
+          <p>
+            Fortæl os om dit projekt. Vi hjælper dig
+            gerne med at finde den rigtige løsning
+            til dine trapper, terrasser eller
+            bordplader.
+          </p>
+
+          <Link
+            href="/kontakt"
+            className={styles.secondaryButton}
+          >
+            Få et gratis tilbud
+            <span>↗</span>
+          </Link>
         </div>
       </section>
 
       {/* CTA */}
       <section className={styles.cta}>
-        <div className={styles.ctaContainer}>
-          <div>
-            <div className={styles.eyebrow}>
-              <span />
-              BM GULVSERVICE
-            </div>
-
-            <h2>
-              Klar til at give træet
-              <span> nyt liv?</span>
-            </h2>
-
-            <p>
-              Kontakt os i dag og fortæl os om dit
-              projekt. Vi hjælper dig gerne med
-              professionel rådgivning og et
-              uforpligtende tilbud.
-            </p>
+        <div>
+          <div className={styles.eyebrow}>
+            <span />
+            BM GULVSERVICE
           </div>
 
-          <div className={styles.ctaActions}>
-            <Link
-              href="/kontakt"
-              className={styles.ctaButton}
-            >
-              Få et gratis tilbud
-              <span>↗</span>
-            </Link>
+          <h2>
+            Klar til at give træet
+            <span> nyt liv?</span>
+          </h2>
 
-            <a
-              href="tel:+4552659452"
-              className={styles.ctaPhone}
-            >
-              52 65 94 52
-            </a>
-          </div>
+          <p>
+            Kontakt os i dag og fortæl os om dit
+            projekt. Vi hjælper dig gerne med
+            professionel rådgivning og et
+            uforpligtende tilbud.
+          </p>
+        </div>
+
+        <div className={styles.ctaActions}>
+          <Link
+            href="/kontakt"
+            className={styles.ctaButton}
+          >
+            Få et gratis tilbud
+            <span>↗</span>
+          </Link>
+
+          <a
+            href="tel:+45 52 65 94 52"
+            className={styles.ctaPhone}
+          >
+            52 65 94 52
+          </a>
         </div>
       </section>
     </main>

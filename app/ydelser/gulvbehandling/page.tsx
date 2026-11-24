@@ -16,8 +16,13 @@ const treatments = [
     subtitle: "Maksimal beskyttelse",
     description:
       "Lak skaber en slidstærk overflade, der beskytter trægulvet mod daglig slitage, ridser og pletter. En ideel løsning til rum med meget aktivitet.",
-    features: ["Slidstærk overflade", "Nem daglig rengøring", "Lang holdbarhed"],
+    features: [
+      "Slidstærk overflade",
+      "Nem daglig rengøring",
+      "Lang holdbarhed",
+    ],
     type: "lacquer",
+    image: "/images/lak.jpg",
   },
   {
     number: "02",
@@ -25,17 +30,27 @@ const treatments = [
     subtitle: "Naturlig varme og glød",
     description:
       "Olie fremhæver træets naturlige struktur og åretegninger. Behandlingen giver gulvet et varmt og eksklusivt udtryk med en smuk naturlig finish.",
-    features: ["Naturligt udseende", "Fremhæver træets struktur", "Mulighed for vedligeholdelse"],
+    features: [
+      "Naturligt udseende",
+      "Fremhæver træets struktur",
+      "Mulighed for vedligeholdelse",
+    ],
     type: "oil",
+    image: "/images/ulje.jpg",
   },
   {
     number: "03",
-    title: "Sæbebehandling",
+    title: "Hvid lud",
     subtitle: "Et lyst og naturligt udtryk",
     description:
-      "Sæbebehandling giver gulvet en mat og naturlig overflade. Det er en klassisk behandling, som hjælper med at beskytte træet og bevare det lyse udtryk.",
-    features: ["Mat finish", "Naturligt udseende", "Løbende vedligeholdelse"],
+      "Hvid lud giver gulvet en mat og naturlig overflade. Det er en klassisk behandling, som hjælper med at beskytte træet og bevare det lyse udtryk.",
+    features: [
+      "Mat finish",
+      "Naturligt udseende",
+      "Løbende vedligeholdelse",
+    ],
     type: "soap",
+    image: "/images/sapun.jpg"
   },
 ];
 
@@ -93,7 +108,6 @@ export default function GulvbehandlingPage() {
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroBackground} />
-        <div className={styles.heroPattern} />
 
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
@@ -147,27 +161,6 @@ export default function GulvbehandlingPage() {
               <span>✓ Fokus på holdbarhed</span>
             </div>
           </div>
-
-          <div className={styles.heroVisual}>
-            <div className={styles.visualFrame}>
-              <div className={styles.visualImage}>
-                <span className={styles.imageTag}>
-                  BM GULVSERVICE
-                </span>
-
-                <div className={styles.visualCaption}>
-                  <span>DETALJERNE GØR FORSKELLEN</span>
-                  <strong>Et gulv, der holder.</strong>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.visualBadge}>
-              <span>3</span>
-              <strong>Behandlingstyper</strong>
-              <small>Én løsning til dit gulv</small>
-            </div>
-          </div>
         </div>
 
         <div className={styles.heroBottom}>
@@ -192,8 +185,7 @@ export default function GulvbehandlingPage() {
           <p>
             Er dine gulve blevet matte, tørre eller har de
             synlige pletter? Med professionel gulvbehandling
-            kan du forvandle dine trægulve og give dem nyt
-            liv.
+            kan du forvandle dine trægulve og give dem nyt liv.
           </p>
 
           <p>
@@ -240,8 +232,19 @@ export default function GulvbehandlingPage() {
             >
               <div
                 className={`${styles.treatmentVisual} ${
-                  styles[treatment.type]
+                  styles[treatment.type as "lacquer" | "oil" | "soap"]
                 }`}
+                style={
+                  treatment.image
+                    ? {
+                        backgroundImage: `linear-gradient(
+                          0deg,
+                          rgba(17, 43, 58, 0.75),
+                          rgba(17, 43, 58, 0.05) 75%
+                        ), url("${treatment.image}")`,
+                      }
+                    : undefined
+                }
               >
                 <span className={styles.treatmentNumber}>
                   {treatment.number}
@@ -308,6 +311,7 @@ export default function GulvbehandlingPage() {
 
               <h3>{benefit.title}</h3>
               <p>{benefit.description}</p>
+
               <span className={styles.benefitArrow}>↗</span>
             </article>
           ))}
